@@ -1,2 +1,2 @@
 # PyPotato.  Simple Tomato timer
-It is a Pet Project.
+It is a pet project (for experiments only project).
