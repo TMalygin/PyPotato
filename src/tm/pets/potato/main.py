@@ -1,3 +1,4 @@
+import os
 from time import sleep
 from timeit import default_timer as timer
 
@@ -5,6 +6,11 @@ import click as click
 from playsound import playsound
 from rich.progress import Progress
 _DEFAULT_TIME_SEC = 20 * 60
+
+
+def getResourceDir():
+    ROOT_DIR = os.path.dirname(os.path.abspath(__file__).replace("tm/pets/potato", ""))
+    return os.path.join(ROOT_DIR, 'res')
 
 
 @click.command()
@@ -16,7 +22,7 @@ def startPomodoro(time):
         while not progress.finished:
             progress.update(task1, completed=timer() - start)
             sleep(1)
-    playsound('alarm.wav')
+    playsound(getResourceDir()+'/alarm.wav')
 
 
 if __name__ == '__main__':
